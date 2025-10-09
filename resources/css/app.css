@@ -11,7 +11,7 @@
 }
 
 .customProse {
-    @apply prose prose-headings:text-gray-300 prose-p:text-gray-300 prose-headings:m-0 prose-p:m-0 prose-code:text-gray-400 prose-hr:m-0 prose-hr:border-gray-600;
+    @apply prose prose-headings:text-gray-300 prose-p:text-gray-300 prose-headings:m-0 prose-p:m-0 prose-code:text-gray-400 prose-hr:m-0 prose-hr:border-gray-600 prose-strong:text-gray-300;
 }
 
 .customButton {

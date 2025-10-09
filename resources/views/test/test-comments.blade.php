@@ -12,7 +12,7 @@
             <div style='border-left:3px solid #3490dc; padding:10px; margin:10px 0;'>
                 <strong>{{$comment->user->name}}:</strong>
                 <p>{{$comment->body}}</p>
-                <small>Posted at: {{$comment->created_at->diffForHumans()}}</small>
+                <small class="text-gray-400">Posted at: {{$comment->created_at->diffForHumans()}}</small>
             </div>
         @endforeach
     </div>
