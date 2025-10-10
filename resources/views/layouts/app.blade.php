@@ -15,7 +15,7 @@
         </style>
     @endif
 </head>
-<body>
+<body class="m-5">
     @yield('content')
 </body>
 </html>

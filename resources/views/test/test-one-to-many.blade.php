@@ -3,7 +3,6 @@
 
 @section('content')
     <article class="customProse">
-
         <h1>One-to-Many Relationship Test</h1>
         <h2>Author: {{$user->name}}</h2>
         <p>Total Posts: {{$user->posts()->count()}}</p>

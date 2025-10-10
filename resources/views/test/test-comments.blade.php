@@ -16,4 +16,7 @@
             </div>
         @endforeach
     </div>
+    <a href="{{ route('test-many-to-many') }}">
+        <button class="customButton">Test Many To Many</button>
+    </a>
 @endsection
