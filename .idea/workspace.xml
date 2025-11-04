@@ -5,84 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a26d12a-45b7-46bc-ae0f-1c07bf5f1437" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Comment.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Profile.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Tag.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/artisan" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog_relationships" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/app.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/providers.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/cache.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/logging.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/queue.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/session.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/0001_01_01_000000_create_users_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/0001_01_01_000001_create_cache_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/0001_01_01_000002_create_jobs_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2025_10_09_044849_create_profiles_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2025_10_09_054638_create_posts_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2025_10_09_095650_create_comments_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2025_10_10_032148_create_tags_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2025_10_10_032210_create_post_tag_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/CommentSeeder.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/PostSeeder.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/TagSeeder.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/UserProfileSeeder.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/test/dashboard.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/test/test-comments.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/test/test-many-to-many.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/test/test-one-to-many.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/test/test-one-to-one.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/console.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/app/private/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/app/public/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/cache/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/cache/data/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/testing/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Pest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TestCase.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,8 +14,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
-    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <pharConfigPath>$PROJECT_DIR$/BlogApp/composer.json</pharConfigPath>
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -105,10 +31,147 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/ahsanultu/LaravelProjects.git&quot;,
-    &quot;accountId&quot;: &quot;41c6bfc4-5664-41f3-a363-1990d4064c83&quot;
+    &quot;accountId&quot;: &quot;dc01c93f-87b7-421f-a92a-f5910cd8b662&quot;
   }
 }</component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="$USER_HOME$/Documents/Dev/php-8.3.25-Win32-vs16-x64/php.exe" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="$PROJECT_DIR$/../../../../Program Files/php-8.3.20-nts-Win32-vs16-x64/php.exe">
+    <include_path>
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/polyfill-php83" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/polyfill-php85" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/polyfill-php84" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/polyfill-uuid" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/brianium/paratest" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/uid" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/fidry/cpu-core-counter" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/jean85/pretty-package-versions" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/pestphp/pest" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/pestphp/pest-plugin-arch" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/pestphp/pest-plugin" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/pestphp/pest-plugin-mutate" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/pestphp/pest-plugin-laravel" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/pestphp/pest-plugin-profanity" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/ta-tikoma/phpunit-architecture-test" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/composer" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/livewire/livewire" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/livewire/flux" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/pragmarx/google2fa" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/livewire/volt" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/fruitcake/php-cors" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/carbonphp/carbon-doctrine-types" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/paragonie/constant_time_encoding" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/guzzlehttp/uri-template" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/nunomaduro/termwind" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/voku/portable-ascii" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/bacon/bacon-qr-code" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/nette/utils" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/nette/schema" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/league/commonmark" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/league/config" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/league/mime-type-detection" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/league/flysystem-local" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/league/uri-interfaces" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/league/uri" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/staabm/side-effects-detector" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/dasprid/enum" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/dflydev/dot-access-data" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/laravel/fortify" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/laravel/pint" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/laravel/pail" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/laravel/sail" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/laravel/prompts" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/laravel/serializable-closure" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/phpstan/phpdoc-parser" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/clock" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/BlogApp/vendor/symfony/polyfill-intl-normalizer" />
+    </include_path>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -133,17 +196,20 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Pest.Main">
+    <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner configuration_file="$PROJECT_DIR$/BlogApp/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
     <configuration name="Main" type="PestRunConfigurationType">
-      <PestRunner configuration_file="$PROJECT_DIR$/BlogApp/phpunit.xml" scope="ConfigurationFile" use_alternative_configuration_file="true" />
       <method v="2" />
     </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-PS-252.23892.419" />
-        <option value="bundled-php-predefined-a98d8de5180a-c72577f2c82f-com.jetbrains.php.sharedIndexes-PS-252.23892.419" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-PS-251.28293.47" />
+        <option value="bundled-php-predefined-a98d8de5180a-e5747d4f5a45-com.jetbrains.php.sharedIndexes-PS-251.28293.47" />
       </set>
     </attachedChunks>
   </component>
@@ -155,10 +221,22 @@
       <option name="presentableId" value="Default" />
       <updated>1760866097863</updated>
       <workItem from="1760866099132" duration="347000" />
+      <workItem from="1762255441080" duration="83000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
