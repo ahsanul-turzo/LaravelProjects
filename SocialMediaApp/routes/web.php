@@ -9,6 +9,7 @@ use App\Http\Controllers\FollowController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -32,6 +33,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Feed (Home Timeline)
     Route::get('feed', [PostController::class, 'feed'])->name('feed');
+
+    // User Discovery
+    Route::get('discover', [UserController::class, 'discover'])->name('users.discover');
 
     // Posts
     Route::get('posts', [PostController::class, 'index'])->name('posts.index');
