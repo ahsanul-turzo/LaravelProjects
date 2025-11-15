@@ -51,6 +51,8 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
         'webhook_secret' => env('STRIPE_WEBHOOK_SECRET'),
+        'verified_badge_price_id' => env('VERIFIED_BADGE_PRICE_ID'),
+        'purple_badge_price_id' => env('PURPLE_BADGE_PRICE_ID'),
     ],
 
 ];
