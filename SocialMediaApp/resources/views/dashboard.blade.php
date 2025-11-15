@@ -100,7 +100,7 @@
                             </svg>
                         </div>
                         <div class="ml-3 flex-1">
-                            <p class="text-sm text-gray-900 dark:text-gray-100">Gained <span class="font-semibold">{{ auth()->user()->followers()->whereBetween('created_at', [now()->subWeek(), now()])->count() }}</span> followers this week</p>
+                            <p class="text-sm text-gray-900 dark:text-gray-100">Gained <span class="font-semibold">{{ auth()->user()->followers()->whereBetween('follows.created_at', [now()->subWeek(), now()])->count() }}</span> followers this week</p>
                         </div>
                     </div>
                 </div>
