@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-app-layout>
     <div class="max-w-4xl mx-auto px-4 py-6">
         {{-- Profile Header --}}
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 mb-6">
@@ -122,4 +122,4 @@
             </div>
         @endif
     </div>
-</x-layouts.app>
+</x-app-layout>

@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-app-layout>
     <div class="max-w-2xl mx-auto px-4 py-12">
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 text-center">
             {{-- Success Icon --}}
@@ -77,4 +77,4 @@
             </div>
         </div>
     </div>
-</x-layouts.app>
+</x-app-layout>

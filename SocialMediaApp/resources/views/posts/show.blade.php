@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-app-layout>
     <div class="max-w-4xl mx-auto px-4 py-6">
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow">
             {{-- Post Header --}}
@@ -173,4 +173,4 @@
             </a>
         </div>
     </div>
-</x-layouts.app>
+</x-app-layout>

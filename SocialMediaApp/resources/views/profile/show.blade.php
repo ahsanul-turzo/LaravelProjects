@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-app-layout>
     <div class="max-w-6xl mx-auto px-4 py-6">
         {{-- Cover Photo --}}
         @if($user->cover_photo)
@@ -186,4 +186,4 @@
             @endif
         </div>
     </div>
-</x-layouts.app>
+</x-app-layout>

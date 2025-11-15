@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-app-layout>
     <div class="max-w-6xl mx-auto px-4 py-6">
         <div class="mb-6">
             <h1 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Discover People</h1>
@@ -111,4 +111,4 @@
             </div>
         @endif
     </div>
-</x-layouts.app>
+</x-app-layout>
