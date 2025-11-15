@@ -9,13 +9,15 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                         </svg>
                     </a>
-                    <img src="{{ $receiver->avatar ?? 'https://ui-avatars.com/api/?name='.urlencode($receiver->name) }}"
-                         alt="{{ $receiver->name }}"
-                         class="w-10 h-10 rounded-full">
-                    <div class="ml-3">
-                        <h3 class="font-semibold text-gray-900 dark:text-gray-100">{{ $receiver->name }}</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">@if($receiver->username){{ '@'.$receiver->username }}@endif</p>
-                    </div>
+                    <a href="{{ route('profile.show', $receiver) }}" class="flex items-center hover:opacity-80 transition">
+                        <img src="{{ $receiver->avatar ?? 'https://ui-avatars.com/api/?name='.urlencode($receiver->name) }}"
+                             alt="{{ $receiver->name }}"
+                             class="w-10 h-10 rounded-full">
+                        <div class="ml-3">
+                            <h3 class="font-semibold text-gray-900 dark:text-gray-100">{{ $receiver->name }}</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">@if($receiver->username){{ '@'.$receiver->username }}@endif</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>

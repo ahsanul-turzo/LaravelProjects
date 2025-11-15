@@ -50,7 +50,7 @@
             @forelse($following as $followedUser)
                 <div class="p-4 border-b border-gray-200 dark:border-gray-700 last:border-b-0">
                     <div class="flex items-center justify-between">
-                        <div class="flex items-center">
+                        <a href="{{ route('profile.show', $followedUser) }}" class="flex items-center flex-1 hover:opacity-80 transition">
                             <img src="{{ $followedUser->avatar ?? 'https://ui-avatars.com/api/?name='.urlencode($followedUser->name) }}"
                                  alt="{{ $followedUser->name }}"
                                  class="w-12 h-12 rounded-full">
@@ -74,7 +74,7 @@
                                     <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">{{ Str::limit($followedUser->bio, 100) }}</p>
                                 @endif
                             </div>
-                        </div>
+                        </a>
 
                         @if($followedUser->id !== auth()->id())
                             @if($user->id === auth()->id())
