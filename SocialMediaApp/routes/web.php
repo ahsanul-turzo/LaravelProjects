@@ -8,6 +8,7 @@ use App\Http\Controllers\ShareController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\ProfileController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -26,10 +27,8 @@ Route::get('auth/apple', [SocialAuthController::class, 'redirectToApple'])->name
 Route::get('auth/apple/callback', [SocialAuthController::class, 'handleAppleCallback']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    // Dashboard - Redirect to feed
-    Route::get('dashboard', function() {
-        return redirect()->route('feed');
-    })->name('dashboard');
+    // Dashboard
+    Route::view('dashboard', 'dashboard')->name('dashboard');
 
     // Feed (Home Timeline)
     Route::get('feed', [PostController::class, 'feed'])->name('feed');
@@ -53,10 +52,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Shares
     Route::post('posts/{post}/share', [ShareController::class, 'store'])->name('posts.share');
 
+    // Profile
+    Route::get('profile/{user}', [ProfileController::class, 'show'])->name('profile.show');
+    Route::get('profile/{user}/followers', [ProfileController::class, 'followers'])->name('profile.followers');
+    Route::get('profile/{user}/following', [ProfileController::class, 'following'])->name('profile.following');
+
     // Follow
-    Route::post('users/{user}/follow', [FollowController::class, 'toggle'])->name('users.follow');
-    Route::get('users/{user}/followers', [FollowController::class, 'followers'])->name('users.followers');
-    Route::get('users/{user}/following', [FollowController::class, 'following'])->name('users.following');
+    Route::post('users/{user}/follow', [FollowController::class, 'store'])->name('follow.store');
+    Route::delete('users/{user}/follow', [FollowController::class, 'destroy'])->name('follow.destroy');
 
     // Messages
     Route::get('messages', [MessageController::class, 'index'])->name('messages.index');
@@ -69,7 +72,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('subscriptions', [SubscriptionController::class, 'index'])->name('subscriptions.index');
     Route::post('subscriptions/checkout', [SubscriptionController::class, 'checkout'])->name('subscriptions.checkout');
     Route::get('subscriptions/success', [SubscriptionController::class, 'success'])->name('subscriptions.success');
-    Route::delete('subscriptions/{subscription}/cancel', [SubscriptionController::class, 'cancel'])->name('subscriptions.cancel');
+    Route::post('subscriptions/cancel', [SubscriptionController::class, 'cancel'])->name('subscriptions.cancel');
 
     // Settings
     Route::redirect('settings', 'settings/profile');

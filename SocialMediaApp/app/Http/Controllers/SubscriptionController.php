@@ -18,9 +18,9 @@ class SubscriptionController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $activeSubscription = $user->activeSubscription;
+        $subscriptions = $user->subscriptions()->latest()->get();
 
-        return view('subscriptions.index', compact('activeSubscription'));
+        return view('subscriptions.index', compact('subscriptions'));
     }
 
     public function checkout(Request $request)
@@ -74,9 +74,14 @@ class SubscriptionController extends Controller
         return view('subscriptions.success');
     }
 
-    public function cancel(Subscription $subscription)
+    public function cancel(Request $request)
     {
-        $this->authorize('update', $subscription);
+        $user = auth()->user();
+        $subscription = $user->activeSubscription;
+
+        if (!$subscription) {
+            return redirect()->back()->with('error', 'No active subscription found!');
+        }
 
         try {
             // Cancel Stripe subscription
@@ -88,7 +93,6 @@ class SubscriptionController extends Controller
             $subscription->cancel();
 
             // Update user badge
-            $user = $subscription->user;
             $user->update([
                 'badge_type' => 'none',
                 'badge_expires_at' => null,

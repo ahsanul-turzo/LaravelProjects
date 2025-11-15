@@ -13,7 +13,7 @@ class MessageController extends Controller
     {
         $user = auth()->user();
 
-        // Get unique conversations
+        // Get unique conversations with the other user, last message, and unread count
         $conversations = Message::where('sender_id', $user->id)
             ->orWhere('receiver_id', $user->id)
             ->with(['sender', 'receiver'])
@@ -24,9 +24,22 @@ class MessageController extends Controller
                     ? $message->receiver_id
                     : $message->sender_id;
             })
-            ->map(function($messages) {
-                return $messages->first();
-            });
+            ->map(function($messages, $otherUserId) use ($user) {
+                $lastMessage = $messages->first();
+                $otherUser = User::find($otherUserId);
+
+                $unreadCount = $messages->where('sender_id', $otherUserId)
+                    ->where('receiver_id', $user->id)
+                    ->where('is_read', false)
+                    ->count();
+
+                return [
+                    'user' => $otherUser,
+                    'last_message' => $lastMessage,
+                    'unread_count' => $unreadCount,
+                ];
+            })
+            ->values();
 
         return view('messages.index', compact('conversations'));
     }
@@ -34,13 +47,14 @@ class MessageController extends Controller
     public function show(User $user)
     {
         $currentUser = auth()->user();
+        $receiver = $user;
 
         // Get messages between current user and selected user
-        $messages = Message::where(function($query) use ($currentUser, $user) {
+        $messages = Message::where(function($query) use ($currentUser, $receiver) {
             $query->where('sender_id', $currentUser->id)
-                  ->where('receiver_id', $user->id);
-        })->orWhere(function($query) use ($currentUser, $user) {
-            $query->where('sender_id', $user->id)
+                  ->where('receiver_id', $receiver->id);
+        })->orWhere(function($query) use ($currentUser, $receiver) {
+            $query->where('sender_id', $receiver->id)
                   ->where('receiver_id', $currentUser->id);
         })
         ->with(['sender', 'receiver'])
@@ -48,12 +62,12 @@ class MessageController extends Controller
         ->get();
 
         // Mark messages as read
-        Message::where('sender_id', $user->id)
+        Message::where('sender_id', $receiver->id)
             ->where('receiver_id', $currentUser->id)
             ->where('is_read', false)
             ->update(['is_read' => true, 'read_at' => now()]);
 
-        return view('messages.show', compact('user', 'messages'));
+        return view('messages.show', compact('receiver', 'messages'));
     }
 
     public function store(Request $request, User $receiver)

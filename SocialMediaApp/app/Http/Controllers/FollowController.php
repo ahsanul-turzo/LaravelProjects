@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class FollowController extends Controller
 {
-    public function toggle(User $user)
+    public function store(User $user)
     {
         $currentUser = auth()->user();
 
@@ -15,37 +15,35 @@ class FollowController extends Controller
             return redirect()->back()->with('error', 'You cannot follow yourself!');
         }
 
-        if ($currentUser->isFollowing($user)) {
-            $currentUser->unfollow($user);
-            $following = false;
-            $message = "Unfollowed {$user->name}";
-        } else {
+        if (!$currentUser->isFollowing($user)) {
             $currentUser->follow($user);
-            $following = true;
-            $message = "Following {$user->name}";
         }
 
         if (request()->wantsJson()) {
             return response()->json([
-                'following' => $following,
+                'following' => true,
                 'followers_count' => $user->followers()->count(),
             ]);
         }
 
-        return redirect()->back()->with('success', $message);
+        return redirect()->back()->with('success', "Following {$user->name}");
     }
 
-    public function followers(User $user)
+    public function destroy(User $user)
     {
-        $followers = $user->followers()->paginate(20);
+        $currentUser = auth()->user();
 
-        return view('profile.followers', compact('user', 'followers'));
-    }
+        if ($currentUser->isFollowing($user)) {
+            $currentUser->unfollow($user);
+        }
 
-    public function following(User $user)
-    {
-        $following = $user->following()->paginate(20);
+        if (request()->wantsJson()) {
+            return response()->json([
+                'following' => false,
+                'followers_count' => $user->followers()->count(),
+            ]);
+        }
 
-        return view('profile.following', compact('user', 'following'));
+        return redirect()->back()->with('success', "Unfollowed {$user->name}");
     }
 }
