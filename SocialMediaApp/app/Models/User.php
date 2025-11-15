@@ -31,6 +31,7 @@ class User extends Authenticatable implements HasMedia, FilamentUser
         'username',
         'email',
         'password',
+        'role',
         'bio',
         'avatar',
         'cover_photo',
@@ -74,7 +75,31 @@ class User extends Authenticatable implements HasMedia, FilamentUser
      */
     public function canAccessPanel(Panel $panel): bool
     {
-        return $this->hasRole(['super_admin', 'admin']);
+        return in_array($this->role, ['admin', 'superadmin']);
+    }
+
+    /**
+     * Check if user is an admin
+     */
+    public function isAdmin(): bool
+    {
+        return in_array($this->role, ['admin', 'superadmin']);
+    }
+
+    /**
+     * Check if user is a superadmin
+     */
+    public function isSuperAdmin(): bool
+    {
+        return $this->role === 'superadmin';
+    }
+
+    /**
+     * Check if user is a regular user
+     */
+    public function isUser(): bool
+    {
+        return $this->role === 'user';
     }
 
     /**
