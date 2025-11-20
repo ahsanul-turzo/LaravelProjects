@@ -84,93 +84,99 @@
 
     @push('scripts')
     <script>
-        // Auto-scroll to bottom on page load
-        const messagesContainer = document.getElementById('messages-container');
-        if (messagesContainer) {
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            // Auto-scroll to bottom on page load
+            const messagesContainer = document.getElementById('messages-container');
+            if (messagesContainer) {
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
 
-        // Handle form submission
-        const messageForm = document.getElementById('message-form');
-        const messageInput = document.getElementById('message-input');
+            // Handle form submission
+            const messageForm = document.getElementById('message-form');
+            const messageInput = document.getElementById('message-input');
 
-        if (messageForm) {
-            messageForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
+            if (messageForm) {
+                messageForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
 
-                const formData = new FormData(messageForm);
-                const content = messageInput.value.trim();
+                    const content = messageInput.value.trim();
+                    if (!content) return;
 
-                if (!content) return;
-
-                try {
-                    const response = await fetch(messageForm.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'X-Requested-With': 'XMLHttpRequest',
-                        }
-                    });
-
-                    if (response.ok) {
-                        const data = await response.json();
-                        messageInput.value = '';
-
-                        // Add message to UI
-                        appendMessage(data.message, true);
-                    }
-                } catch (error) {
-                    console.error('Error sending message:', error);
-                }
-            });
-        }
-
-        // Listen for new messages via Laravel Echo (if configured)
-        if (typeof Echo !== 'undefined') {
-            Echo.private('chat.{{ auth()->id() }}')
-                .listen('.message.sent', (e) => {
-                    if (e.sender_id === {{ $receiver->id }}) {
-                        appendMessage(e, false);
-
-                        // Mark as read
-                        fetch(`/messages/${e.id}/read`, {
-                            method: 'POST',
-                            headers: {
-                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
-                                'Content-Type': 'application/json',
-                            }
+                    try {
+                        const response = await window.axios.post(messageForm.action, {
+                            content: content
                         });
+
+                        if (response.data) {
+                            messageInput.value = '';
+                            // Add message to UI
+                            appendMessage(response.data.message, true);
+                        }
+                    } catch (error) {
+                        console.error('Error sending message:', error);
+                        alert('Failed to send message. Please try again.');
                     }
                 });
-        }
+            }
 
-        function appendMessage(message, isOwn) {
-            const container = document.getElementById('messages-container');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `mb-4 flex ${isOwn ? 'justify-end' : 'justify-start'}`;
+            // Listen for new messages via Laravel Echo
+            if (typeof window.Echo !== 'undefined') {
+                window.Echo.private('chat.{{ auth()->id() }}')
+                    .listen('.message.sent', (e) => {
+                        console.log('Received message:', e);
+                        if (e.sender_id === {{ $receiver->id }}) {
+                            appendMessage(e, false);
 
-            const avatar = isOwn
-                ? '{{ auth()->user()->avatar ?? "https://ui-avatars.com/api/?name=".urlencode(auth()->user()->name) }}'
-                : (message.sender?.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(message.sender?.name || 'User')}`);
+                            // Mark as read
+                            if (e.id) {
+                                window.axios.post(`/messages/${e.id}/read`)
+                                    .catch(err => console.error('Failed to mark message as read:', err));
+                            }
+                        }
+                    });
+            } else {
+                console.warn('Laravel Echo not initialized. Real-time messaging will not work.');
+            }
 
-            const time = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+            function appendMessage(message, isOwn) {
+                const container = document.getElementById('messages-container');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `mb-4 flex ${isOwn ? 'justify-end' : 'justify-start'}`;
 
-            messageDiv.innerHTML = `
-                ${!isOwn ? `<img src="${avatar}" alt="Avatar" class="w-8 h-8 rounded-full mr-2">` : ''}
-                <div class="max-w-xs lg:max-w-md">
-                    <div class="px-4 py-2 rounded-lg ${isOwn ? 'bg-indigo-600 text-white' : 'bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100'}">
-                        <p class="break-words">${message.content}</p>
+                const avatar = isOwn
+                    ? '{{ auth()->user()->avatar ?? "https://ui-avatars.com/api/?name=".urlencode(auth()->user()->name) }}'
+                    : (message.sender?.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(message.sender?.name || 'User')}`);
+
+                const time = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+
+                messageDiv.innerHTML = `
+                    ${!isOwn ? `<img src="${avatar}" alt="Avatar" class="w-8 h-8 rounded-full mr-2">` : ''}
+                    <div class="max-w-xs lg:max-w-md">
+                        <div class="px-4 py-2 rounded-lg ${isOwn ? 'bg-indigo-600 text-white' : 'bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100'}">
+                            <p class="break-words">${escapeHtml(message.content)}</p>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 ${isOwn ? 'text-right' : 'text-left'}">
+                            ${time}
+                        </p>
                     </div>
-                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 ${isOwn ? 'text-right' : 'text-left'}">
-                        ${time}
-                    </p>
-                </div>
-                ${isOwn ? `<img src="${avatar}" alt="Avatar" class="w-8 h-8 rounded-full ml-2">` : ''}
-            `;
+                    ${isOwn ? `<img src="${avatar}" alt="Avatar" class="w-8 h-8 rounded-full ml-2">` : ''}
+                `;
 
-            container.appendChild(messageDiv);
-            container.scrollTop = container.scrollHeight;
-        }
+                container.appendChild(messageDiv);
+                container.scrollTop = container.scrollHeight;
+            }
+
+            function escapeHtml(text) {
+                const map = {
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#039;'
+                };
+                return text.replace(/[&<>"']/g, m => map[m]);
+            }
+        });
     </script>
     @endpush
 </x-app-layout>
