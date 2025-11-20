@@ -82,8 +82,8 @@ class MessageController extends Controller
             'content' => $validated['content'],
         ]);
 
-        // Broadcast message via Reverb
-        broadcast(new MessageSent($message))->toOthers();
+        // Broadcast message to receiver in real-time
+        broadcast(new MessageSent($message->load('sender')));
 
         if (request()->wantsJson()) {
             return response()->json(['message' => $message->load(['sender', 'receiver'])]);

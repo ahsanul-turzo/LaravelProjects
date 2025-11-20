@@ -121,21 +121,41 @@
 
             // Listen for new messages via Laravel Echo
             if (typeof window.Echo !== 'undefined') {
-                window.Echo.private('chat.{{ auth()->id() }}')
-                    .listen('.message.sent', (e) => {
-                        console.log('Received message:', e);
-                        if (e.sender_id === {{ $receiver->id }}) {
-                            appendMessage(e, false);
+                const channel = window.Echo.private('chat.{{ auth()->id() }}');
 
-                            // Mark as read
-                            if (e.id) {
-                                window.axios.post(`/messages/${e.id}/read`)
-                                    .catch(err => console.error('Failed to mark message as read:', err));
-                            }
+                console.log('Subscribing to private channel: chat.{{ auth()->id() }}');
+
+                channel.listen('.message.sent', (e) => {
+                    console.log('✓ Received message event:', e);
+                    console.log('Sender ID:', e.sender_id, 'Expected sender:', {{ $receiver->id }});
+
+                    if (e.sender_id === {{ $receiver->id }}) {
+                        console.log('✓ Message is from the current conversation partner, displaying...');
+                        appendMessage(e, false);
+
+                        // Mark as read
+                        if (e.id) {
+                            window.axios.post(`/messages/${e.id}/read`)
+                                .catch(err => console.error('Failed to mark message as read:', err));
                         }
-                    });
+                    } else {
+                        console.log('⨯ Message is from a different user, ignoring.');
+                    }
+                })
+                .error((error) => {
+                    console.error('Echo subscription error:', error);
+                });
+
+                // Log subscription success
+                channel.on('pusher:subscription_succeeded', () => {
+                    console.log('✓ Successfully subscribed to chat.{{ auth()->id() }}');
+                });
+
+                channel.on('pusher:subscription_error', (error) => {
+                    console.error('⨯ Subscription error:', error);
+                });
             } else {
-                console.warn('Laravel Echo not initialized. Real-time messaging will not work.');
+                console.error('⨯ Laravel Echo not initialized. Real-time messaging will not work.');
             }
 
             function appendMessage(message, isOwn) {
