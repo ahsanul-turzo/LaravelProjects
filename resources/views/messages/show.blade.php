@@ -102,10 +102,22 @@
                     const content = messageInput.value.trim();
                     if (!content) return;
 
+                    // Check if axios is available
+                    if (typeof window.axios === 'undefined') {
+                        console.error('⨯ Axios is not loaded');
+                        alert('Error: Axios library not loaded. Please refresh the page.');
+                        return;
+                    }
+
                     try {
+                        console.log('Sending message to:', messageForm.action);
+                        console.log('Content:', content);
+
                         const response = await window.axios.post(messageForm.action, {
                             content: content
                         });
+
+                        console.log('✓ Message sent successfully:', response.data);
 
                         if (response.data) {
                             messageInput.value = '';
@@ -113,8 +125,27 @@
                             appendMessage(response.data.message, true);
                         }
                     } catch (error) {
-                        console.error('Error sending message:', error);
-                        alert('Failed to send message. Please try again.');
+                        console.error('⨯ Error sending message:', error);
+
+                        let errorMessage = 'Failed to send message. ';
+                        if (error.response) {
+                            // Server responded with error
+                            console.error('Server error:', error.response.status, error.response.data);
+                            errorMessage += `Server error: ${error.response.status}`;
+                            if (error.response.data.message) {
+                                errorMessage += ` - ${error.response.data.message}`;
+                            }
+                        } else if (error.request) {
+                            // Request made but no response
+                            console.error('No response received:', error.request);
+                            errorMessage += 'No response from server. Check your connection.';
+                        } else {
+                            // Error setting up request
+                            console.error('Request setup error:', error.message);
+                            errorMessage += error.message;
+                        }
+
+                        alert(errorMessage);
                     }
                 });
             }
