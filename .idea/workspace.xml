@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a26d12a-45b7-46bc-ae0f-1c07bf5f1437" name="Changes" comment="remove unnecessary data">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -607,7 +605,7 @@
       <workItem from="1760866099132" duration="347000" />
       <workItem from="1762255441080" duration="83000" />
       <workItem from="1763607660197" duration="892000" />
-      <workItem from="1763609870945" duration="1169000" />
+      <workItem from="1763609870945" duration="3096000" />
     </task>
     <task id="LOCAL-00001" summary="remove unnecessary data">
       <option name="closed" value="true" />
@@ -625,7 +623,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763607966085</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="remove unnecessary data">
+      <option name="closed" value="true" />
+      <created>1763611440129</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1763611440129</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
