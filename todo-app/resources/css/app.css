@@ -1,0 +1,26 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+.custom-input {
+    @apply border h-10 placeholder:text-gray-200 border-gray-700 outline-none focus:border-blue-500
+    transition-all rounded-md shadow-sm px-4;
+}
+
+.custom-button {
+    @apply px-4 h-10 bg-blue-600 hover:bg-blue-500 text-gray-50 cursor-pointer rounded-md shadow-sm transition-all;
+}
+
+.custom-button-danger {
+    @apply px-4 h-10 bg-red-700 hover:bg-red-600 text-gray-50 cursor-pointer rounded-md shadow-sm transition-all;
+}
