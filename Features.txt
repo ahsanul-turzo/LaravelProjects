@@ -1,0 +1,3 @@
+- Notebooks has Notes.
+- User can add, delete or view notes.
+- User Login & Sync notes.
