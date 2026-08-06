@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\NotesController;
+use App\Http\Controllers\API\NotesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

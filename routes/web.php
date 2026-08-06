@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\API\NotesController;
+use App\Http\Controllers\NoteV2Controller;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -50,3 +52,5 @@ Route::get('/notes', function () {
     ];
     return view('notes.index', compact('notes'));
 })->name('notes');
+
+Route::resource('notes/v2', NoteV2Controller::class);

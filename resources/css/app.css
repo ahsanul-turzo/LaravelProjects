@@ -14,3 +14,8 @@
 .button {
     @apply text-xl text-white bg-blue-600 py-1 px-4 rounded cursor-pointer;
 }
+
+.buttonDanger {
+    @apply text-xl text-white bg-red-600 py-1 px-4 rounded cursor-pointer;
+}
+
